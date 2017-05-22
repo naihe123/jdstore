@@ -13,7 +13,7 @@
         <% current_cart.cart_items.each do |cart_item| %>
         <tr>
           <td>
-            <%= link_to(cart_item.product.title, product.path(cart_item.product)) %>
+            <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
           </td>
           <td>
             <%= cart_item.product.price %>
@@ -30,6 +30,7 @@
     <h2>订单资讯</h2>
     <div class="order-form">
       <%= simple_form_for @order do |f| %>
+
       <legend> 订购人 </legend>
       <div class="form-group col-lg-6">
         <%= f.input :billing_name %>
@@ -37,6 +38,7 @@
       <div class="form-group col-lg-6">
         <%= f.input :billing_address %>
       </div>
+
       <legend> 收货人 </legend>
       <div class="form-group col-lg-6">
         <%= f.input :shipping_name %>
